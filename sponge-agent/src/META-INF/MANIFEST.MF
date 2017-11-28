@@ -1,0 +1,56 @@
+Manifest-Version: 1.0
+Class-Path: javax.ws.rs-api-2.0.1.jar h2-1.4.192.jar jackson-core-2.8.
+ 1.jar commons-pool2-2.4.2.jar boilerpipe-1.1.0.jar jetty-security-9.2
+ .20.v20161216.jar jackson-module-jaxb-annotations-2.8.1.jar jj2000-5.
+ 2.jar jetty-webapp-9.2.20.v20161216.jar xmlschema-core-2.1.0.jar jack
+ son-jaxrs-json-provider-2.8.1.jar metadata-extractor-2.9.1.jar gson-2
+ .2.4.jar jetty-server-9.2.20.v20161216.jar bson-3.4.2.jar asm-5.0.4.j
+ ar netcdf4-4.5.5.jar norconex-collector-http-2.7.1.jar bcpkix-jdk15on
+ -1.54.jar httpservices-4.5.5.jar cxf-core-3.0.3.jar javax.annotation-
+ api-1.2.jar ehcache-core-2.6.2.jar guava-17.0.jar commons-dbutils-1.6
+ .jar regexp-1.3.jar xml-apis-1.4.01.jar httpmime-4.2.6.jar jackson-da
+ tabind-2.8.1.jar poi-ooxml-schemas-3.15.jar annotations-12.0.jar org.
+ eclipse.wst.xml.xpath2.processor-1.1.5-738bb7b85d.jar commons-csv-1.0
+ .jar commons-logging-1.2.jar jwnl-1.3.3.jar tika-core-1.14.jar java-l
+ ibpst-0.8.1.jar commons-lang-2.4.jar apache-mime4j-core-0.7.2.jar sis
+ -storage-0.6.jar cdm-4.5.5.jar grib-4.5.5.jar jna-4.1.0.jar jetty-pro
+ xy-9.2.20.v20161216.jar jhighlight-1.0.2.jar jsonic-1.2.11.jar common
+ s-jxpath-1.3.jar xmlbeans-2.3.0.jar norconex-commons-lang-1.13.1.jar 
+ stax2-api-3.1.4.jar geronimo-javamail_1.4_mail-1.8.4.jar log4j-1.2.17
+ .jar opennlp-tools-1.5.3.jar maven-scm-provider-svn-commons-1.4.jar j
+ ackcess-encrypt-2.1.1.jar bcprov-jdk15on-1.54.jar jetty-io-9.2.20.v20
+ 161216.jar commons-logging-api-1.1.jar tika-translate-1.14.jar bcmail
+ -jdk15on-1.54.jar luaj-jse-3.0.1.jar jdom2-2.0.4.jar httpclient-4.5.2
+ .jar norconex-jef-4.1.0.jar stax-api-1.0.1.jar mongodb-driver-core-3.
+ 4.2.jar javax.servlet-api-3.1.0.jar maven-scm-api-1.4.jar cxf-rt-rs-c
+ lient-3.0.3.jar rome-utils-1.5.1.jar woodstox-core-asl-4.4.1.jar jett
+ y-client-9.2.20.v20161216.jar commons-beanutils-1.9.2.jar vorbis-java
+ -tika-0.8.jar quartz-2.2.0.jar xercesImpl-xsd11-2.12-beta-r1667115.ja
+ r pdfbox-2.0.3.jar xmpbox-2.0.1.jar junrar-0.7.jar commons-dbcp2-2.1.
+ 1.jar joda-time-2.9.4.jar sis-netcdf-0.6.jar jackson-jaxrs-base-2.8.1
+ .jar apache-mime4j-dom-0.7.2.jar vorbis-java-core-0.8.jar commons-cod
+ ec-1.9.jar geoapi-3.0.0.jar jetty-util-9.2.20.v20161216.jar jackson-a
+ nnotations-2.8.0.jar microsoft-translator-java-api-0.6.2.jar opennlp-
+ maxent-3.0.3.jar plexus-utils-1.5.6.jar json-20160810.jar protobuf-ja
+ va-2.5.0.jar xmpcore-5.1.2.jar slf4j-api-1.7.12.jar commons-vfs2-2.0.
+ jar rome-1.5.1.jar commons-cli-1.3.1.jar opencsv-2.0.jar jcommander-1
+ .35.jar jetty-http-9.2.20.v20161216.jar jempbox-1.8.12.jar tagsoup-1.
+ 2.1.jar json-simple-1.1.1.jar isoparser-1.1.18.jar jmatio-1.2.jar tik
+ a-langdetect-1.14.jar jetty-servlet-9.2.20.v20161216.jar curvesapi-1.
+ 04.jar commons-collections4-4.1.jar poi-3.15.jar language-detector-0.
+ 5.jar udunits-4.5.5.jar jackcess-2.1.4.jar sis-utility-0.6.jar fontbo
+ x-2.0.3.jar mongodb-driver-3.4.2.jar jsr-275-0.9.3.jar norconex-commi
+ tter-core-2.1.1.jar norconex-importer-2.7.2.jar poi-ooxml-3.15.jar sp
+ onge-crawl-1.0.0.jar cxf-rt-frontend-jaxrs-3.0.3.jar ooxml-schemas-1.
+ 3.jar sis-metadata-0.6.jar maven-scm-provider-svnexe-1.4.jar xz-1.5.j
+ ar sis-referencing-0.6.jar jetty-xml-9.2.20.v20161216.jar bzip2-0.9.1
+ .jar pdfbox-debugger-2.0.3.jar pdfbox-tools-2.0.3.jar tika-parsers-1.
+ 14.jar jsoup-1.7.2.jar c3p0-0.9.1.1.jar java-cup-10k.jar httpcore-4.4
+ .4.jar poi-scratchpad-3.15.jar commons-lang3-3.5.jar slf4j-log4j12-1.
+ 7.12.jar commons-compress-1.12.jar commons-configuration-1.10.jar cxf
+ -rt-transports-http-3.0.3.jar commons-io-2.5.jar commons-collections-
+ 3.2.1.jar jai-imageio-core-1.3.1.jar norconex-collector-core-1.8.2.ja
+ r commons-exec-1.3.jar jcip-annotations-1.0.jar juniversalchardet-1.0
+ .3.jar velocity-1.7.jar
+Main-Class: org.mware.sponge.agent.SpongeAgent
+

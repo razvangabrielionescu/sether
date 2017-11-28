@@ -1,0 +1,23 @@
+{
+    "spongeApp": {
+        "commiterFieldMapping" : {
+            "home": {
+                "title": "Commiter Configuration Field Mappings for {{ parent }} ({{ type }})",
+                "createLabel": "Creeare o nouă intrare",
+                "createOrEditLabel": "Editare mapare"
+            },
+            "created": "A fost creată o nouă entitate Commiter Field Mapping cu identificatorul {{ param }}",
+            "updated": "Commiter Field Mapping cu identificatorul {{ param }} a fost actualizată",
+            "deleted": "Commiter Field Mapping cu identificatorul {{ param }} a fost ștearsă",
+            "delete": {
+                "question": "Sunteți sigur că doriți să ștergeți Commiter Field Mapping {{ id }}?"
+            },
+            "detail": {
+                "title": "Commiter Field Mapping"
+            },
+            "sourceField": "Camp sursa",
+            "destinationField": "Camp destinatie",
+            "project": "Proiect"
+        }
+    }
+}

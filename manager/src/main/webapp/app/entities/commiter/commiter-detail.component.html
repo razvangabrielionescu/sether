@@ -1,0 +1,22 @@
+
+<div *ngIf="commiter">
+    <h2><span jhiTranslate="spongeApp.commiter.detail.title">Committer:</span> {{commiter.name}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spongeApp.commiter.clazz">Clazz</span></dt>
+        <dd>
+            <span>{{commiter.clazz}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.commiter.description">Description</span></dt>
+        <dd>
+            <span>{{commiter.description}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+</div>

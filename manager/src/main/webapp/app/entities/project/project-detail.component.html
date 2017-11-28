@@ -1,0 +1,86 @@
+
+<div *ngIf="project">
+    <h2><span jhiTranslate="spongeApp.project.detail.title">Project</span> {{project.name}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spongeApp.project.description">Description</span></dt>
+        <dd>
+            <span>{{project.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.project.tool">Tool</span></dt>
+        <dd>
+            <span>{{project.tool}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.project.commiterConfig">Committer Configuration</span></dt>
+        <dd>
+            <span>{{project.commiterConfig?.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.project.agent">Agent</span></dt>
+        <dd>
+            <span>{{project.agent?.name}}</span>
+        </dd>
+        <dt *ngIf="project.job != null"><span jhiTranslate="spongeApp.project.schedule">Schedule</span></dt>
+        <dd *ngIf="project.job != null">
+            Starting: {{project.job?.startTime | date: 'dd/MM/yyyy'}}, Every: <span>{{project.job?.period}} {{project.job?.periodUnit}}</span>
+        </dd>
+        <button *ngIf="project.job != null" type="button" (click)="removeSchedule()"
+                class="btn btn-danger btn-sm">
+            <span class="fa fa-remove"></span>&nbsp;<span jhiTranslate="spongeApp.project.scheduleRemove"> Remove schedule</span>
+        </button>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'project/'+ project.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+
+    <button *ngIf="project.tool === 'Web UI'" class="btn btn-primary" (click)="updateWebUi()">
+        <span class="fa fa-pencil-square-o"></span>
+        <span  jhiTranslate="spongeApp.project.home.portiaUpdateButtonLabel">
+            Modify Web UI Project
+        </span>
+    </button>
+
+    <button *ngIf="project.tool === 'Social'" class="btn btn-primary" (click)="updateSocial()">
+        <span class="fa fa-pencil-square-o"></span>
+        <span  jhiTranslate="spongeApp.project.home.socialUpdateButtonLabel">
+            Modify Social Project
+        </span>
+    </button>
+
+    <button *ngIf="project.tool === 'Web UI' || project.tool === 'Social'" type="button"
+            [routerLink]="['/', { outlets: { popup: 'setting/'+ project.setting.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-cog"></span>
+        <span  jhiTranslate="spongeApp.project.home.settings">
+            Settings
+        </span>
+    </button>
+
+    <button *ngIf="project?.commiterConfig?.commiter?.name === 'SQLCommitter'" class="btn btn-primary"
+            [routerLink]="['/', 'sqlviewer', project.id]" replaceUrl="true">
+        <span class="fa fa-eye"></span>
+        <span  jhiTranslate="global.menu.entities.sqlviewer">
+            SQL Viewer
+        </span>
+    </button>
+
+    <button type="submit"
+            [routerLink]="['/', { outlets: { popup: 'project/'+ project.id + '/delete'} }]"
+            replaceUrl="true"
+            class="btn btn-danger">
+        <span class="fa fa-remove"></span>
+        <span class="hidden-md-down" jhiTranslate="spongeApp.project.home.deleteProject">Delete Project</span>
+    </button>
+
+</div>

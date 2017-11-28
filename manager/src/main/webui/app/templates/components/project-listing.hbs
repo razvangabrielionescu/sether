@@ -1,0 +1,54 @@
+{{#tree-list}}
+    {{#tree-list-item hasChildren=true as |options|}}
+        {{#if (eq options.section "item")}}
+            {{#list-item-text class="title project-listing"}}
+                Project
+                {{#animation-container
+                    hide=isPublished
+                    class="inline project-changes"
+                    setHeight=false
+                }}
+                {{/animation-container}}
+
+                {{#animation-container hide=notPublished id="project-changes-info" class="inline project-changes" setHeight=false}}
+                    Not published
+                    {{#help-icon tooltipClasses="tooltip-wide"}}
+                        Not published
+                        <p>
+                            This project has changes that have not yet been published.
+                        </p>
+                        <p>
+                            When you make changes in Sponge a private workspace is created for your
+                            user, separate from the rest of the project. Other users cannot see
+                            these changes until they are published, and you cannot see changes that
+                            were published by other users after you started making changes.
+                        </p>
+                        <p>
+                            To run a spider or make your changes visible to other users you must
+                            first publish ({{icon-button icon='publish'}}) the changes.
+                        </p>
+                        <p>
+                            To clean your private workspace, and get back to the most recently
+                            published version of your project, you can discard your changes
+                            ({{icon-button icon='rollback'}}).
+                        </p>
+                    {{/help-icon}}
+                {{/animation-container}}
+            {{/list-item-text}}
+        {{else if (eq options.section "subtrees")}}
+            {{#tree-list-item}}
+                {{#link-to 'projects.project' project}}
+                    {{indentation-spacer}}
+                    {{list-item-icon icon='project'}}
+                    {{#list-item-text}}
+                        {{project.name}}
+                    {{/list-item-text}}
+                {{/link-to}}
+
+
+                <div class={{if isPulsing 'droplet'}}></div>
+
+            {{/tree-list-item}}
+        {{/if}}
+    {{/tree-list-item}}
+{{/tree-list}}

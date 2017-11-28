@@ -1,0 +1,27 @@
+{
+    "spongeApp": {
+        "setting" : {
+            "home": {
+                "title": "Settings",
+                "createLabel": "Creeare o nouă entitate Setting",
+                "createOrEditLabel": "Editeaza setari"
+            },
+            "created": "A fost creată o nouă entitate Setting cu identificatorul {{ param }}",
+            "updated": "Setting cu identificatorul {{ param }} a fost actualizată",
+            "deleted": "Setting cu identificatorul {{ param }} a fost ștearsă",
+            "delete": {
+                "question": "Sunteți sigur că doriți să ștergeți Setting {{ id }}?"
+            },
+            "detail": {
+                "title": "Setting"
+            },
+            "stayOnDomain": "Acelasi domeniu",
+            "stayOnPort": "Acelasi port",
+            "stayOnProtocol": "Acelasi protocol",
+            "numThreads": "Numar thread-uri",
+            "maxDepth": "Adancime maxima",
+            "filterExtensions": "Extensii filtrate",
+            "project": "Project"
+        }
+    }
+}

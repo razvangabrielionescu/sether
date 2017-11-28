@@ -1,0 +1,33 @@
+<form name="commiterForm" (ngSubmit)="commiterFormSubmit(project.id)" role="form" novalidate #commiterForm="ngForm">
+    <div class="modal-header">
+        <h4 class="modal-title" jhiTranslate="entity.projectCommiter.title">Commiter Configuration selection</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spongeApp.project.projectCommiter.text" translateValues="{name: '{{project.name}}'}"
+                   for="field-commiter-config">Please select a commiter configuration for this project</label>
+            <select class="form-control" [(ngModel)]="selectedCommiterConfigId" name="commiterconfig" id="field-commiter-config" required>
+                <option *ngFor="let commiterConfig of commiterConfigs" value={{commiterConfig.id}}>
+                    {{commiterConfig.name}}
+                </option>
+            </select>
+            <div [hidden]="!(commiterForm.controls.commiterconfig?.dirty && commiterForm.controls.commiterconfig?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!commiterForm.controls.commiterconfig?.errors?.required" jhiTranslate="entity.validation.required">
+                    This field is required.
+                </small>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" class="btn btn-success" [disabled]="commiterForm.form.invalid || isSaving">
+            <span class="fa fa-check"></span>&nbsp;<span jhiTranslate="entity.action.ok">Ok</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,33 @@
+<form name="agentForm" (ngSubmit)="agentFormSubmit(project.id)" role="form" novalidate #agentForm="ngForm">
+    <div class="modal-header">
+        <h4 class="modal-title" jhiTranslate="entity.projectAgent.title">Agent selection</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spongeApp.project.projectAgent.text" translateValues="{name: '{{project.name}}'}"
+                   for="field-agent-config">Please select an agent for this project</label>
+            <select class="form-control" [(ngModel)]="selectedAgentId" name="agentconfig" id="field-agent-config" required>
+                <option *ngFor="let agent of agents" value={{agent.id}}>
+                    {{agent.name}}
+                </option>
+            </select>
+            <div [hidden]="!(agentForm.controls.agentconfig?.dirty && agentForm.controls.agentconfig?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!agentForm.controls.agentconfig?.errors?.required" jhiTranslate="entity.validation.required">
+                    This field is required.
+                </small>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" class="btn btn-success" [disabled]="agentForm.form.invalid || isSaving">
+            <span class="fa fa-check"></span>&nbsp;<span jhiTranslate="entity.action.ok">Ok</span>
+        </button>
+    </div>
+</form>

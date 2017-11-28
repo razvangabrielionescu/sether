@@ -1,0 +1,23 @@
+{
+    "spongeApp": {
+        "commiterFieldMapping" : {
+            "home": {
+                "title": "Commiter Configuration Field Mappings for {{ parent }} ({{ type }})",
+                "createLabel": "Create a new entry",
+                "createOrEditLabel": "Edit mapping"
+            },
+            "created": "A new Commiter Field Mapping is created with identifier {{ param }}",
+            "updated": "A Commiter Field Mapping is updated with identifier {{ param }}",
+            "deleted": "A Commiter Field Mapping is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Commiter Field Mapping {{ id }}?"
+            },
+            "detail": {
+                "title": "Commiter Field Mapping"
+            },
+            "sourceField": "Source Field",
+            "destinationField": "Destination Field",
+            "project": "Project"
+        }
+    }
+}

@@ -1,0 +1,79 @@
+
+<div *ngIf="commiterConfig">
+    <h2><span jhiTranslate="spongeApp.commiterConfig.detail.title">Commiter Config</span> {{commiterConfig.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spongeApp.commiterConfig.name">Name</span></dt>
+        <dd>
+            <span>{{commiterConfig.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.commiterConfig.description">Description</span></dt>
+        <dd>
+            <span>{{commiterConfig.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.commiterConfig.dbDriverClass">Db Driver Class</span></dt>
+        <dd>
+            <span>{{commiterConfig.dbDriverClass}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.commiterConfig.dbConnectionUrl">Db Connection Url</span></dt>
+        <dd>
+            <span>{{commiterConfig.dbConnectionUrl}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.commiterConfig.dbDriverPath">Db Driver Path</span></dt>
+        <dd>
+            <span>{{commiterConfig.dbDriverPath}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.commiterConfig.dbUsername">Db Username</span></dt>
+        <dd>
+            <span>{{commiterConfig.dbUsername}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.commiterConfig.dbPassword">Db Password</span></dt>
+        <dd>
+            <span>{{commiterConfig.dbPassword}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.commiterConfig.dbCreateMissing">Db Create Missing</span></dt>
+        <dd>
+            <span>{{commiterConfig.dbCreateMissing}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.commiterConfig.dbCreateTableSQL">Db Create Table SQL</span></dt>
+        <dd>
+            <span>{{commiterConfig.dbCreateTableSQL}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.commiterConfig.dbCommitBatchSize">Db Commit Batch Size</span></dt>
+        <dd>
+            <span>{{commiterConfig.dbCommitBatchSize}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.commiterConfig.bcUrl">Bc Url</span></dt>
+        <dd>
+            <span>{{commiterConfig.bcUrl}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.commiterConfig.bcUsername">Bc Username</span></dt>
+        <dd>
+            <span>{{commiterConfig.bcUsername}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.commiterConfig.bcPassword">Bc Password</span></dt>
+        <dd>
+            <span>{{commiterConfig.bcPassword}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.commiterConfig.commiter">Commiter</span></dt>
+        <dd>
+            <div *ngIf="commiterConfig.commiter">
+                <a [routerLink]="['/commiter', commiterConfig.commiter?.id]">{{commiterConfig.commiter?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'commiter-config/'+ commiterConfig.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

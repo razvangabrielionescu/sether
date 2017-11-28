@@ -1,0 +1,11 @@
+# robotstxt.org/
+
+User-agent: *
+Disallow: /sapi/account
+Disallow: /sapi/account/change_password
+Disallow: /sapi/account/sessions
+Disallow: /sapi/audits/
+Disallow: /sapi/logs/
+Disallow: /sapi/users/
+Disallow: /management/
+Disallow: /v2/api-docs/

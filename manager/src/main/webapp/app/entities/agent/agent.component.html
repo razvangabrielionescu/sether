@@ -1,0 +1,58 @@
+<div>
+    <h2>
+        <span jhiTranslate="spongeApp.agent.home.title">Agents</span>
+        <button class="btn btn-primary float-right create-agent" [routerLink]="['/', { outlets: { popup: ['agent-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="spongeApp.agent.home.createLabel">
+            Create new Agent
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="agents">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="spongeApp.agent.name">Name</span></th>
+            <th><span jhiTranslate="spongeApp.agent.host">Host</span></th>
+            <th><span jhiTranslate="spongeApp.agent.port">Port</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let agent of agents ;trackBy: trackId">
+                <td>{{agent.name}}</td>
+                <td>{{agent.host}}</td>
+                <td>{{agent.port}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../agent', agent.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'agent/'+ agent.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'agent/'+ agent.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

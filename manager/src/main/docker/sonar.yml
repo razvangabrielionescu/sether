@@ -1,0 +1,7 @@
+version: '2'
+services:
+    sponge-sonar:
+        image: sonarqube:6.4-alpine
+        ports:
+            - 9001:9001
+            - 9092:9092

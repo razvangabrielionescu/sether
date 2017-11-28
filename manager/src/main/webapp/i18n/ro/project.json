@@ -1,0 +1,55 @@
+{
+    "spongeApp": {
+        "project" : {
+            "home": {
+                "title": "Proiecte",
+                "createLabel": "Creare o nouă entitate Project",
+                "portiaButtonLabel": "Creare proiect Web",
+                "socialButtonLabel": "Creare proiect Social",
+                "fileSystemButtonLabel": "Creare proiect FileSystem",
+                "portiaUpdateButtonLabel": "Modificare proiect Web",
+                "socialUpdateButtonLabel": "Modificare proiect Social",
+                "createOrEditLabel": "Editare proiect",
+                "fsTitle": "Creaza proiect FileSystem",
+                "settings": "Setari",
+                "play": "Porneste",
+                "stop": "Stop",
+                "deleteProject": "Sterge proiect"
+            },
+            "fileSystem": {
+                "name": "Nume",
+                "url": "URL de start"
+            },
+            "created": "A fost creată o nouă entitate Project cu identificatorul {{ param }}",
+            "updated": "Project cu identificatorul {{ param }} a fost actualizată",
+            "deleted": "Project cu identificatorul {{ param }} a fost ștearsă",
+            "delete": {
+                "question": "Sunteți sigur că doriți să ștergeți Project {{ id }}?"
+            },
+            "projectCommiter": {
+                "text": "Va rugam selectati o configurare de commiter pentru proiectul {{ name }}"
+            },
+            "projectAgent": {
+                "text": "Va rugam selectati un agent pentru proiectul {{ name }}"
+            },
+            "detail": {
+                "title": "Proiect"
+            },
+            "name": "Denumire",
+            "description": "Descriere",
+            "tool": "Tool",
+            "commiterConfig": "Configuratie Committer",
+            "agent": "Agent",
+            "schedule": "Programare",
+            "scheduleRemove": "Sterge programare",
+            "status": "Status",
+            "note": "Note",
+            "progress": "Progres",
+            "lastActivity": "Ultima activitate",
+            "spider": "Spider",
+            "table": "Tabel"
+        }
+    }
+}
+
+

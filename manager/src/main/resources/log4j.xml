@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration debug="true" xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd HH:mm:ss} %-5p %C:%M:%L - %m%n" />
+        </layout>
+    </appender>
+
+    <appender name="file" class="org.apache.log4j.RollingFileAppender">
+        <param name="append" value="false" />
+        <param name="maxFileSize" value="10MB" />
+        <param name="maxBackupIndex" value="10" />
+        <param name="file" value="../logs/sponge.log" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd HH:mm:ss} %-5p %C:%M:%L - %m%n" />
+        </layout>
+    </appender>
+
+    <root>
+        <level value="INFO" />
+        <appender-ref ref="console" />
+        <appender-ref ref="file" />
+    </root>
+
+    <logger name="javax.activation"><level value="WARN"/></logger>
+    <logger name="javax.mail"><level value="WARN"/></logger>
+    <logger name="javax.xml.bind"><level value="WARN"/></logger>
+    <logger name="ch.qos.logback"></logger>
+    <logger name="com.codahale.metrics"></logger>
+    <logger name="com.ryantenney"><level value="WARN"/></logger>
+    <logger name="com.sun"><level value="WARN"/></logger>
+    <logger name="com.zaxxer"><level value="WARN"/></logger>
+    <logger name="io.undertow"><level value="WARN"/></logger>
+    <logger name="io.undertow.websockets.jsr"><level value="ERROR"/></logger>
+    <logger name="org.apache"><level value="WARN"/></logger>
+    <logger name="org.apache.catalina.startup.DigesterFactory"><level value="OFF"/></logger>
+    <logger name="org.bson"><level value="WARN"/></logger>
+    <logger name="org.hibernate.validator"><level value="WARN"/></logger>
+    <logger name="org.hibernate"><level value="WARN"/></logger>
+    <logger name="org.hibernate.ejb.HibernatePersistence"><level value="OFF"/></logger>
+    <logger name="org.springframework"><level value="WARN"/></logger>
+    <logger name="org.springframework.web"><level value="WARN"/></logger>
+    <logger name="org.springframework.security"><level value="WARN"/></logger>
+    <logger name="org.springframework.cache"><level value="WARN"/></logger>
+    <logger name="org.thymeleaf"><level value="WARN"/></logger>
+    <logger name="org.xnio"><level value="WARN"/></logger>
+    <logger name="springfox"><level value="WARN"/></logger>
+    <logger name="sun.rmi"><level value="WARN"/></logger>
+    <logger name="liquibase"><level value="WARN"/></logger>
+    <logger name="LiquibaseSchemaResolver"><level value="INFO"/></logger>
+    <logger name="sun.rmi.transport"><level value="WARN"/></logger>
+    <logger name="org.mongodb"><level value="WARN"/></logger>
+    <logger name="c.n.jef4"><level value="WARN"/></logger>
+    <logger name="c.n.c"><level value="WARN"/></logger>
+    <logger name="com.norconex"><level value="WARN"/></logger>
+    <logger name="com.norconex.jef4"><level value="WARN"/></logger>
+    <logger name="com.norconex.commons.lang.config"><level value="WARN"/></logger>
+    <logger name="com.norconex.collector.http.client.impl.GenericHttpClientFactory"><level value="DEBUG"/></logger>
+
+</log4j:configuration>

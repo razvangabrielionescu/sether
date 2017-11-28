@@ -1,0 +1,69 @@
+<div>
+    <h2>
+        <span jhiTranslate="spongeApp.commiterConfig.home.title">Commiter Configs</span>
+        <button class="btn btn-primary float-right create-commiter-config" [routerLink]="['/', { outlets: { popup: ['commiter-config-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="spongeApp.commiterConfig.home.createLabel">
+            Create new Commiter Config
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="commiterConfigs">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="spongeApp.commiterConfig.name">Name</span></th>
+            <th><span jhiTranslate="spongeApp.commiterConfig.description">Description</span></th>
+            <th><span jhiTranslate="spongeApp.commiterConfig.commiter">Commiter</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let commiterConfig of commiterConfigs ;trackBy: trackId">
+                <td>{{commiterConfig.name}}</td>
+                <td>{{commiterConfig.description}}</td>
+                <td>
+                    <div *ngIf="commiterConfig.commiter">
+                        <a [routerLink]="['../commiter', commiterConfig.commiter?.id ]" >{{commiterConfig.commiter?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit" *ngIf="commiterConfig.commiter?.name === 'SQLCommitter' || commiterConfig.commiter?.name === 'BigConnectCommitter'"
+                                [routerLink]="['../commiter-field-mapping/config', commiterConfig.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.mapping">Field mapping</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'commiter-config/'+ commiterConfig.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'commiter-config/'+ commiterConfig.id + '/clone'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-clone"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.clone">Clone</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'commiter-config/'+ commiterConfig.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

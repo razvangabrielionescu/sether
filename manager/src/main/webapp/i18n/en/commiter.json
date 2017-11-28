@@ -1,0 +1,23 @@
+{
+    "spongeApp": {
+        "commiter" : {
+            "home": {
+                "title": "Committers",
+                "createLabel": "Create a new Committer",
+                "createOrEditLabel": "Create or edit a Commiter"
+            },
+            "created": "A new Commiter is created with identifier {{ param }}",
+            "updated": "A Commiter is updated with identifier {{ param }}",
+            "deleted": "A Commiter is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Commiter {{ id }}?"
+            },
+            "detail": {
+                "title": "Committer: "
+            },
+            "name": "Name",
+            "clazz": "Class",
+            "description": "Description"
+        }
+    }
+}

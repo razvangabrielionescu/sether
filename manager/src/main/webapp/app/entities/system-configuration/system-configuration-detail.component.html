@@ -1,0 +1,29 @@
+
+<div *ngIf="systemConfiguration">
+    <h2><span jhiTranslate="spongeApp.systemConfiguration.detail.title">System Configuration</span></h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spongeApp.systemConfiguration.configKey">Config Key</span></dt>
+        <dd>
+            <span>{{systemConfiguration.configKey}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.systemConfiguration.configValue">Config Value</span></dt>
+        <dd>
+            <span>{{systemConfiguration.configValue}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'system-configuration/'+ systemConfiguration.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

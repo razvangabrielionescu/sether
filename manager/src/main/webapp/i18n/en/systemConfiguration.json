@@ -1,0 +1,23 @@
+{
+    "spongeApp": {
+        "systemConfiguration" : {
+            "home": {
+                "title": "System Configuration",
+                "createLabel": "Create a new setting",
+                "createOrEditLabel": "Create or edit a setting"
+            },
+            "created": "A new setting is created with identifier {{ param }}",
+            "updated": "A setting is updated with identifier {{ param }}",
+            "deleted": "A setting is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete setting {{ id }}?"
+            },
+            "detail": {
+                "title": "System Configuration"
+            },
+            "configKey": "Config Key",
+            "configValue": "Config Value",
+            "warning": "Please note that any change to these settings require the application to be restarted."
+        }
+    }
+}

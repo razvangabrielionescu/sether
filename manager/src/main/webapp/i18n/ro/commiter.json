@@ -1,0 +1,23 @@
+{
+    "spongeApp": {
+        "commiter" : {
+            "home": {
+                "title": "Commiters",
+                "createLabel": "Creeare o nouă entitate Commiter",
+                "createOrEditLabel": "Creeare sau editare Commiter"
+            },
+            "created": "A fost creată o nouă entitate Commiter cu identificatorul {{ param }}",
+            "updated": "Commiter cu identificatorul {{ param }} a fost actualizată",
+            "deleted": "Commiter cu identificatorul {{ param }} a fost ștearsă",
+            "delete": {
+                "question": "Sunteți sigur că doriți să ștergeți Commiter {{ id }}?"
+            },
+            "detail": {
+                "title": "Commiter: "
+            },
+            "name": "Name",
+            "clazz": "Class",
+            "description": "Description"
+        }
+    }
+}

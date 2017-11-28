@@ -1,0 +1,23 @@
+{
+    "spongeApp": {
+        "systemConfiguration" : {
+            "home": {
+                "title": "Configurare sistem",
+                "createLabel": "Creeare o nouă setare",
+                "createOrEditLabel": "Creeare sau editare setare"
+            },
+            "created": "A fost creată o nouă setare cu identificatorul {{ param }}",
+            "updated": "Setarea cu identificatorul {{ param }} a fost actualizată",
+            "deleted": "Setarea cu identificatorul {{ param }} a fost ștearsă",
+            "delete": {
+                "question": "Sunteți sigur că doriți să ștergeți setarea {{ id }}?"
+            },
+            "detail": {
+                "title": "Configurare sistem"
+            },
+            "configKey": "Config Key",
+            "configValue": "Config Value",
+            "warning": "Orice modificare a acestor setari are efect dupa ce aplicatia a fost restartata."
+        }
+    }
+}

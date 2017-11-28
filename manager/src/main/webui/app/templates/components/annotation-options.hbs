@@ -1,0 +1,12 @@
+<h3>Annotation</h3>
+<form {{action "save" on="change"}}>
+    <div class="form-group{{if invalidSelector ' has-error'}}">
+        <label for="selector">Selector</label>
+        {{buffered-input type="text" name="selector" class="form-control" value=(mut cssSelector) viewValue=(mut editedCssSelector) onChange=(action 'save')}}
+        <span class="help-block{{if (not invalidSelector) ' hide'}}">The input value is not a valid CSS selector.</span>
+    </div>
+    <div class="form-group">
+        <label for="attribute">Source</label>
+        {{select-box name="attribute" value=(mut attribute) valueAttribute='name' choices=attributes onChange=(action "save")}}
+    </div>
+</form>

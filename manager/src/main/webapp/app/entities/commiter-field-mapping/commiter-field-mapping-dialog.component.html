@@ -1,0 +1,66 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCommiterFieldMappingLabel" jhiTranslate="spongeApp.commiterFieldMapping.home.createOrEditLabel">Create or edit a Commiter Field Mapping</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spongeApp.commiterFieldMapping.project" for="field_project">Project</label>
+            <select class="form-control" [(ngModel)]="projectName" name="projectName" id="field_project" (change)="projectChanged()"
+                    required [disabled]="projects == null">
+                <option *ngFor="let project of projects" value={{project}}>
+                    {{project}}
+                </option>
+            </select>
+            <div *ngIf="projects == null"><small class="form-text text-warning">Loading ...</small></div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spongeApp.commiterFieldMapping.sourceField" for="field_sourceField">Source Field</label>
+            <select class="form-control" [(ngModel)]="commiterFieldMapping.sourceField" name="sourceField" id="field_sourceField"
+                    required [disabled]="sourceFields == null">
+                <option *ngFor="let sourceField of sourceFields" value={{sourceField}}>
+                    {{sourceField}}
+                </option>
+            </select>
+            <div *ngIf="sourceFields == null"><small class="form-text text-warning">Loading ...</small></div>
+            <div [hidden]="!(editForm.controls.sourceField?.dirty && editForm.controls.sourceField?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.sourceField?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label *ngIf="!parentIsBigConnect" class="form-control-label" jhiTranslate="spongeApp.commiterFieldMapping.destinationField" for="field_destinationField">Destination Field</label>
+            <input type="text" class="form-control" name="destinationField" id="field_destinationField" placeholder="<table>.<column>"
+                [(ngModel)]="commiterFieldMapping.destinationField" required *ngIf="!parentIsBigConnect" />
+
+            <label *ngIf="parentIsBigConnect" class="form-control-label" jhiTranslate="spongeApp.commiterFieldMapping.destinationField" for="sfield_destinationField">Destination Field</label>
+            <select class="form-control" [(ngModel)]="commiterFieldMapping.destinationField" name="destinationField" id="sfield_destinationField"
+                    required [disabled]="destinationFields == null" *ngIf="parentIsBigConnect">
+                <option *ngFor="let destinationField of destinationFields" value={{destinationField.title}}>
+                    {{destinationField.displayName}}
+                </option>
+            </select>
+            <div *ngIf="destinationFields == null && parentIsBigConnect"><small class="form-text text-warning">Loading ontology ...</small></div>
+
+            <div [hidden]="!(editForm.controls.destinationField?.dirty && editForm.controls.destinationField?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.destinationField?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

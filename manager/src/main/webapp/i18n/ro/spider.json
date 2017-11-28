@@ -1,0 +1,22 @@
+{
+    "spongeApp": {
+        "spider" : {
+            "home": {
+                "title": "Spiders",
+                "createLabel": "Creeare o nouă entitate Spider",
+                "createOrEditLabel": "Creeare sau editare Spider"
+            },
+            "created": "A fost creată o nouă entitate Spider cu identificatorul {{ param }}",
+            "updated": "Spider cu identificatorul {{ param }} a fost actualizată",
+            "deleted": "Spider cu identificatorul {{ param }} a fost ștearsă",
+            "delete": {
+                "question": "Sunteți sigur că doriți să ștergeți Spider {{ id }}?"
+            },
+            "detail": {
+                "title": "Spider"
+            },
+            "name": "Name",
+            "project": "Project"
+        }
+    }
+}

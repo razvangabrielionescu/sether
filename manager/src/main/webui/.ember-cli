@@ -1,0 +1,4 @@
+{
+  "disableAnalytics": true,
+  "outputPath": "../../../target/www/webui"
+}

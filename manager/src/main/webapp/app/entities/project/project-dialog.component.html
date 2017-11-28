@@ -1,0 +1,66 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myProjectLabel" jhiTranslate="spongeApp.project.home.createOrEditLabel">Create or edit a Project</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spongeApp.project.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="project.name"  readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spongeApp.project.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="project.description"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spongeApp.project.commiterConfig"
+                   for="field-commiter-config">Committer config</label>
+            <select class="form-control" [(ngModel)]="project.commiterConfig" name="commiterconfig" id="field-commiter-config" required>
+                <option [ngValue]="commiterConfig.id === project.commiterConfig?.id ? project.commiterConfig : commiterConfig"
+                        *ngFor="let commiterConfig of commiterConfigs; trackBy: trackCommiterConfigById">{{commiterConfig.name}}
+                </option>
+            </select>
+            <div [hidden]="!(editForm.controls.commiterconfig?.dirty && editForm.controls.commiterconfig?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.commiterconfig?.errors?.required" jhiTranslate="entity.validation.required">
+                    This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spongeApp.project.agent"
+                   for="field-agent">Agent</label>
+            <select class="form-control" [(ngModel)]="project.agent" name="agentconfig" id="field-agent" required>
+                <option [ngValue]="agent.id === project.agent?.id ? project.agent : agent"
+                        *ngFor="let agent of agents; trackBy: trackAgentById">{{agent.name}}
+                </option>
+            </select>
+            <div [hidden]="!(editForm.controls.agentconfig?.dirty && editForm.controls.agentconfig?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.agentconfig?.errors?.required" jhiTranslate="entity.validation.required">
+                    This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spongeApp.project.tool" for="field_tool">Tool</label>
+            <input type="text" class="form-control" name="tool" id="field_tool"
+                [(ngModel)]="project.tool" readonly />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

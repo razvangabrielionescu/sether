@@ -1,0 +1,29 @@
+
+<div *ngIf="commiterFieldMapping">
+    <h2><span jhiTranslate="spongeApp.commiterFieldMapping.detail.title">Commiter Field Mapping</span> {{commiterFieldMapping.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spongeApp.commiterFieldMapping.sourceField">Source Field</span></dt>
+        <dd>
+            <span>{{commiterFieldMapping.sourceField}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.commiterFieldMapping.destinationField">Destination Field</span></dt>
+        <dd>
+            <span>{{commiterFieldMapping.destinationField}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'commiter-field-mapping/'+ commiterFieldMapping.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

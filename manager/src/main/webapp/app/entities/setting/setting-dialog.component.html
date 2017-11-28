@@ -1,0 +1,67 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySettingLabel" jhiTranslate="spongeApp.setting.home.createOrEditLabel">Edit project settings</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="spongeApp.setting.numThreads" for="field_numThreads">Num Threads</label>
+                    <input type="number" class="form-control" name="numThreads" id="field_numThreads" required
+                           [(ngModel)]="setting.numThreads"  />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="spongeApp.setting.maxDepth" for="field_maxDepth">Max Depth</label>
+                    <input type="number" class="form-control" name="maxDepth" id="field_maxDepth" required
+                           [(ngModel)]="setting.maxDepth"  />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="spongeApp.setting.filterExtensions" for="field_filterExtensions">Filter Extensions</label>
+                    <input type="text" class="form-control" name="filterExtensions" id="field_filterExtensions" required
+                           [(ngModel)]="setting.filterExtensions"  />
+                </div>
+            </div>
+            <div class="col-sm-6" style="top:25px;">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label class="form-control-label" jhiTranslate="spongeApp.setting.stayOnDomain" for="field_stayOnDomain">Stay On Domain</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="checkbox" name="stayOnDomain" id="field_stayOnDomain"
+                           [(ngModel)]="setting.stayOnDomain"  />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label class="form-control-label" jhiTranslate="spongeApp.setting.stayOnPort" for="field_stayOnPort">Stay On Port</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="checkbox"  name="stayOnPort" id="field_stayOnPort"
+                           [(ngModel)]="setting.stayOnPort"  />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label class="form-control-label" jhiTranslate="spongeApp.setting.stayOnProtocol" for="field_stayOnProtocol">Stay On Protocol</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="checkbox"  name="stayOnProtocol" id="field_stayOnProtocol"
+                           [(ngModel)]="setting.stayOnProtocol"  />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

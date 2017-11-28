@@ -1,0 +1,51 @@
+<form name="runForm" role="form" novalidate #runForm="ngForm">
+    <div class="modal-header">
+        <h4 class="modal-title" jhiTranslate="entity.projectRun.title">Run mode</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <div class="form-control form-check" style="font-size: 20px;">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" style="outline-color: transparent;transform: scale(1.3);"
+                           name="runType" [(ngModel)]="runMode" value="NOW">
+                    Run now
+                </label>
+            </div>
+            <div class="form-control form-check" style="font-size: 20px;">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" style="outline-color: transparent;transform: scale(1.3);"
+                           name="runType" [(ngModel)]="runMode" value="SCHEDULED">
+                    Run scheduled
+                </label>
+            </div>
+        </div>
+        <div class="row" *ngIf="runMode === 'SCHEDULED'">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="number" class="form-control" name="period" id="field_period" required
+                           [(ngModel)]="period"  placeholder="Every"/>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <select class="form-control" id="field_unit" name="unit" [(ngModel)]="unit"  required>
+                        <option value="HOUR">HOUR</option>
+                        <option value="DAY">DAY</option>
+                        <option value="MINUTE">MINUTE</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="button" class="btn btn-success" [disabled]="runForm.form.invalid" (click)="runProject()">
+            <span class="fa fa-check"></span>&nbsp;<span jhiTranslate="spongeApp.project.home.play">Run</span>
+        </button>
+    </div>
+</form>

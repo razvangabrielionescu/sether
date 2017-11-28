@@ -1,0 +1,40 @@
+{
+    "spongeApp": {
+        "commiterConfig" : {
+            "home": {
+                "title": "Committer configurations",
+                "createLabel": "Create a new committer configuration",
+                "createOrEditLabel": "Edit committer configuration"
+            },
+            "created": "A new Commiter Config is created with identifier {{ param }}",
+            "updated": "A Commiter Config is updated with identifier {{ param }}",
+            "deleted": "A Commiter Config is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete committer configuration {{ id }}?"
+            },
+            "clone": {
+                "question": "Clone the field mapping"
+            },
+            "detail": {
+                "title": "Committer configuration"
+            },
+            "name": "Name",
+            "description": "Description",
+            "dbDriverClass": "Driver Class",
+            "dbConnectionUrl": "Connection URL",
+            "dbDriverPath": "Driver Path",
+            "dbUsername": "Username",
+            "dbPassword": "Password",
+            "dbCreateMissing": "Create Missing",
+            "dbCreateTableSQL": "Create Table SQL",
+            "dbCommitBatchSize": "Database Commit Batch Size",
+            "bcUrl": "BigConnect URL",
+            "bcUsername": "Username",
+            "bcPassword": "Password",
+            "fsDirectory": "Directory",
+            "commiter": "Committer",
+            "commiterFieldMapping": "Commiter Field Mapping",
+            "project": "Project"
+        }
+    }
+}

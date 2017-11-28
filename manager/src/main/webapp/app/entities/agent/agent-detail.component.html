@@ -1,0 +1,29 @@
+
+<div *ngIf="agent">
+    <h2><span jhiTranslate="spongeApp.agent.detail.title">Agent</span> {{agent.name}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spongeApp.agent.host">Host</span></dt>
+        <dd>
+            <span>{{agent.host}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.agent.port">Port</span></dt>
+        <dd>
+            <span>{{agent.port}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'agent/'+ agent.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

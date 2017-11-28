@@ -1,0 +1,70 @@
+<div>
+    <h2>
+        <span jhiTranslate="spongeApp.job.home.title">Jobs</span>
+        <button class="btn btn-primary float-right create-job" [routerLink]="['/', { outlets: { popup: ['job-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="spongeApp.job.home.createLabel">
+            Create new Job
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="jobs">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="spongeApp.job.startTime">Start Time</span></th>
+            <th><span jhiTranslate="spongeApp.job.endTime">End Time</span></th>
+            <th><span jhiTranslate="spongeApp.job.period">Period</span></th>
+            <th><span jhiTranslate="spongeApp.job.periodUnit">Period Unit</span></th>
+            <th><span jhiTranslate="spongeApp.job.status">Status</span></th>
+            <th><span jhiTranslate="spongeApp.job.project">Project</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let job of jobs ;trackBy: trackId">
+                <td><a [routerLink]="['../job', job.id ]">{{job.id}}</a></td>
+                <td>{{job.startTime | date:'mediumDate'}}</td>
+                <td>{{job.endTime | date:'mediumDate'}}</td>
+                <td>{{job.period}}</td>
+                <td>{{job.periodUnit}}</td>
+                <td>{{job.status}}</td>
+                <td>
+                    <div *ngIf="job.project">
+                        <a [routerLink]="['../project', job.project?.id ]" >{{job.project?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../job', job.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'job/'+ job.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'job/'+ job.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

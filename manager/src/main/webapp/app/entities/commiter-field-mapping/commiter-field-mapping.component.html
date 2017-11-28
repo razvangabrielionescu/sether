@@ -1,0 +1,59 @@
+<div>
+    <h2>
+        <span jhiTranslate="spongeApp.commiterFieldMapping.home.title"
+              translateValues="{parent: '{{parent?.name}}', type: '{{parent?.commiter?.name}}'}">Commiter Field Mappings</span>
+        <button type="submit"
+                (click)="previousState()"
+                class="btn btn-info float-right">
+            <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+        </button>
+        <button class="btn btn-primary float-right create-commiter-field-mapping"
+                [routerLink]="['/', { outlets: { popup: 'commiter-field-mapping-new/' + parentId } }]"
+                replaceUrl="true"
+                type="submit">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="spongeApp.commiterFieldMapping.home.createLabel">
+            Create new entry
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="commiterFieldMappings">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="spongeApp.commiterFieldMapping.sourceField">Source Field</span></th>
+            <th><span jhiTranslate="spongeApp.commiterFieldMapping.destinationField">Destination Field</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let commiterFieldMapping of commiterFieldMappings ;trackBy: trackId">
+                <td>{{commiterFieldMapping.sourceField}}</td>
+                <td>{{commiterFieldMapping.destinationField}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'commiter-field-mapping/'+ commiterFieldMapping.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'commiter-field-mapping/'+ commiterFieldMapping.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

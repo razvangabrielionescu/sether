@@ -1,0 +1,40 @@
+{
+    "spongeApp": {
+        "commiterConfig" : {
+            "home": {
+                "title": "Configurari commitere",
+                "createLabel": "Creeaza o nouă configurare de commiter",
+                "createOrEditLabel": "Editare configuratie commiter"
+            },
+            "created": "A fost creată o nouă entitate Commiter Config cu identificatorul {{ param }}",
+            "updated": "Commiter Config cu identificatorul {{ param }} a fost actualizată",
+            "deleted": "Commiter Config cu identificatorul {{ param }} a fost ștearsă",
+            "delete": {
+                "question": "Sunteți sigur că doriți să ștergeți configuratia {{ id }}?"
+            },
+            "clone": {
+                "question": "Clonare mapare de campuri"
+            },
+            "detail": {
+                "title": "Committer config"
+            },
+            "name": "Nume",
+            "description": "Descriere",
+            "dbDriverClass": "Driver Class",
+            "dbConnectionUrl": "Connection Url",
+            "dbDriverPath": "Driver Path",
+            "dbUsername": "Username",
+            "dbPassword": "Password",
+            "dbCreateMissing": "Create Missing",
+            "dbCreateTableSQL": "Create Table SQL",
+            "dbCommitBatchSize": "Commit Batch Size",
+            "bcUrl": "BigConnect URL",
+            "bcUsername": "Username",
+            "bcPassword": "Password",
+            "fsDirectory": "Folder",
+            "commiter": "Committer",
+            "commiterFieldMapping": "Commiter Field Mapping",
+            "project": "Project"
+        }
+    }
+}

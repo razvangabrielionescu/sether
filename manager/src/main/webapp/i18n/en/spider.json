@@ -1,0 +1,22 @@
+{
+    "spongeApp": {
+        "spider" : {
+            "home": {
+                "title": "Spiders",
+                "createLabel": "Create a new Spider",
+                "createOrEditLabel": "Create or edit a Spider"
+            },
+            "created": "A new Spider is created with identifier {{ param }}",
+            "updated": "A Spider is updated with identifier {{ param }}",
+            "deleted": "A Spider is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Spider {{ id }}?"
+            },
+            "detail": {
+                "title": "Spider"
+            },
+            "name": "Name",
+            "project": "Project"
+        }
+    }
+}

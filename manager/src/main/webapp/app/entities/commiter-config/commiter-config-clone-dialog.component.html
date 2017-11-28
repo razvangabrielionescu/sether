@@ -1,0 +1,35 @@
+<form name="cloneForm" (ngSubmit)="confirmClone(commiterConfig.id)" role="form" novalidate #cloneForm="ngForm">
+    <div class="modal-header">
+        <h4 class="modal-title" jhiTranslate="entity.clone.title">Confirm clone operation</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="spongeApp.commiterConfig.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name" required
+                           [(ngModel)]="name"  />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <label class="form-control-label" jhiTranslate="spongeApp.commiterConfig.clone.question" for="field_clone">Clone the field mapping</label>
+            </div>
+            <div class="col-sm-6">
+                <input type="checkbox" name="cloneMapping" id="field_clone" [(ngModel)]="cloneMapping"  />
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" class="btn btn-success" [disabled]="cloneForm.form.invalid">
+            <span class="fa fa-clone"></span>&nbsp;<span jhiTranslate="entity.action.clone">Clone</span>
+        </button>
+    </div>
+</form>

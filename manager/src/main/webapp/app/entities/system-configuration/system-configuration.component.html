@@ -1,0 +1,67 @@
+<div>
+    <h2>
+        <span jhiTranslate="spongeApp.systemConfiguration.home.title">System Configurations</span>
+        <button class="btn btn-primary float-right create-system-configuration" [routerLink]="['/', { outlets: { popup: ['system-configuration-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="spongeApp.systemConfiguration.home.createLabel">
+            Create new System Configuration
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+
+    <div class="alert alert-warning">
+        <span jhiTranslate="spongeApp.systemConfiguration.warning">Changes require restart </span>
+    </div>
+
+    <div class="row">
+    </div>
+    <br/>
+
+    <div class="table-responsive" *ngIf="systemConfigurations">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <!--<th><span jhiTranslate="global.field.id">ID</span></th>-->
+            <th><span jhiTranslate="spongeApp.systemConfiguration.configKey">Config Key</span></th>
+            <th><span jhiTranslate="spongeApp.systemConfiguration.configValue">Config Value</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let systemConfiguration of systemConfigurations ;trackBy: trackId">
+                <!--<td><a [routerLink]="['../system-configuration', systemConfiguration.id ]">{{systemConfiguration.id}}</a></td>-->
+                <td>{{systemConfiguration.configKey}}</td>
+                <td>{{systemConfiguration.configValue}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../system-configuration', systemConfiguration.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'system-configuration/'+ systemConfiguration.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <!--<button type="submit"-->
+                                <!--[routerLink]="['/', { outlets: { popup: 'system-configuration/'+ systemConfiguration.id + '/delete'} }]"-->
+                                <!--replaceUrl="true"-->
+                                <!--class="btn btn-danger btn-sm">-->
+                            <!--<span class="fa fa-remove"></span>-->
+                            <!--<span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>-->
+                        <!--</button>-->
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{
+    "spongeApp": {
+        "job" : {
+            "home": {
+                "title": "Jobs",
+                "createLabel": "Creeare o nouă entitate Job",
+                "createOrEditLabel": "Creeare sau editare Job"
+            },
+            "created": "A fost creată o nouă entitate Job cu identificatorul {{ param }}",
+            "updated": "Job cu identificatorul {{ param }} a fost actualizată",
+            "deleted": "Job cu identificatorul {{ param }} a fost ștearsă",
+            "delete": {
+                "question": "Sunteți sigur că doriți să ștergeți Job {{ id }}?"
+            },
+            "detail": {
+                "title": "Job"
+            },
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "period": "Period",
+            "periodUnit": "Period Unit",
+            "status": "Status",
+            "project": "Project"
+        }
+    }
+}

@@ -1,0 +1,45 @@
+
+<div *ngIf="setting">
+    <h2><span jhiTranslate="spongeApp.setting.detail.title">Setting</span> {{setting.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spongeApp.setting.stayOnDomain">Stay On Domain</span></dt>
+        <dd>
+            <span>{{setting.stayOnDomain}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.setting.stayOnPort">Stay On Port</span></dt>
+        <dd>
+            <span>{{setting.stayOnPort}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.setting.stayOnProtocol">Stay On Protocol</span></dt>
+        <dd>
+            <span>{{setting.stayOnProtocol}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.setting.numThreads">Num Threads</span></dt>
+        <dd>
+            <span>{{setting.numThreads}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.setting.maxDepth">Max Depth</span></dt>
+        <dd>
+            <span>{{setting.maxDepth}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.setting.filterExtensions">Filter Extensions</span></dt>
+        <dd>
+            <span>{{setting.filterExtensions}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'setting/'+ setting.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

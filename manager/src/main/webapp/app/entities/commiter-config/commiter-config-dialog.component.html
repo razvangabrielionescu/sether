@@ -1,0 +1,124 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCommiterConfigLabel" jhiTranslate="spongeApp.commiterConfig.home.createOrEditLabel">Create or edit a Commiter Config</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <!--<div class="form-group" [hidden]="!commiterConfig.id">-->
+            <!--<label for="id" jhiTranslate="global.field.id">ID</label>-->
+            <!--<input type="text" class="form-control" id="id" name="id"-->
+                   <!--[(ngModel)]="commiterConfig.id" readonly />-->
+        <!--</div>-->
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spongeApp.commiterConfig.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="commiterConfig.name" required />
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spongeApp.commiterConfig.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                   [(ngModel)]="commiterConfig.description"  />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="spongeApp.commiterConfig.commiter" for="field_commiter">Commiter</label>
+            <select class="form-control" id="field_commiter" name="commiter" [(ngModel)]="commiterConfig.commiter"  required>
+                <option [ngValue]="commiterOption.id === commiterConfig.commiter?.id ? commiterConfig.commiter : commiterOption" *ngFor="let commiterOption of commiters; trackBy: trackCommiterById">{{commiterOption.name}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.commiter?.dirty && editForm.controls.commiter?.invalid)">
+            <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.commiter?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+
+        <div class="form-group" *ngIf="commiterConfig.commiter?.name === 'FileSystemCommitter' ||
+                commiterConfig.commiter?.name === 'JSONFileCommitter' || commiterConfig.commiter?.name === 'XMLFileCommitter'">
+            <label class="form-control-label" jhiTranslate="spongeApp.commiterConfig.fsDirectory" for="field_fsDirectory">Directory</label>
+            <input type="text" class="form-control" name="fsDirectory" id="field_fsDirectory" required
+            [(ngModel)]="commiterConfig.fsDirectory"  />
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group" *ngIf="commiterConfig.commiter?.name === 'SQLCommitter'">
+                    <label class="form-control-label" jhiTranslate="spongeApp.commiterConfig.dbDriverClass" for="field_dbDriverClass">Db Driver Class</label>
+                    <input type="text" class="form-control" name="dbDriverClass" id="field_dbDriverClass" required
+                        [(ngModel)]="commiterConfig.dbDriverClass"  />
+                </div>
+                <div class="form-group" *ngIf="commiterConfig.commiter?.name === 'SQLCommitter'">
+                    <label class="form-control-label" jhiTranslate="spongeApp.commiterConfig.dbDriverPath" for="field_dbDriverPath">Db Driver Path</label>
+                    <input type="text" class="form-control" name="dbDriverPath" id="field_dbDriverPath"
+                           [(ngModel)]="commiterConfig.dbDriverPath"  />
+                </div>
+                <div class="form-group" *ngIf="commiterConfig.commiter?.name === 'SQLCommitter'">
+                    <label class="form-control-label" jhiTranslate="spongeApp.commiterConfig.dbConnectionUrl" for="field_dbConnectionUrl">Db Connection Url</label>
+                    <input type="text" class="form-control" name="dbConnectionUrl" id="field_dbConnectionUrl" required
+                        [(ngModel)]="commiterConfig.dbConnectionUrl"  />
+                </div>
+
+                <div class="form-group" *ngIf="commiterConfig.commiter?.name === 'SQLCommitter'">
+                    <label class="form-control-label" jhiTranslate="spongeApp.commiterConfig.dbUsername" for="field_dbUsername">Db Username</label>
+                    <input type="text" class="form-control" name="dbUsername" id="field_dbUsername" required
+                        [(ngModel)]="commiterConfig.dbUsername"  />
+                </div>
+                <div class="form-group" *ngIf="commiterConfig.commiter?.name === 'SQLCommitter'">
+                    <label class="form-control-label" jhiTranslate="spongeApp.commiterConfig.dbPassword" for="field_dbPassword">Db Password</label>
+                    <input type="password" class="form-control" name="dbPassword" id="field_dbPassword" required
+                        [(ngModel)]="commiterConfig.dbPassword"  />
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group" *ngIf="commiterConfig.commiter?.name === 'SQLCommitter'">
+                    <label class="form-control-label" jhiTranslate="spongeApp.commiterConfig.dbCreateMissing" for="field_dbCreateMissing">Db Create Missing</label>
+                    <input type="text" class="form-control" name="dbCreateMissing" id="field_dbCreateMissing"
+                        [(ngModel)]="commiterConfig.dbCreateMissing"  />
+                </div>
+                <div class="form-group" *ngIf="commiterConfig.commiter?.name === 'SQLCommitter'">
+                    <label class="form-control-label" jhiTranslate="spongeApp.commiterConfig.dbCreateTableSQL" for="field_dbCreateTableSQL">Db Create Table SQL</label>
+                    <input type="text" class="form-control" name="dbCreateTableSQL" id="field_dbCreateTableSQL"
+                        [(ngModel)]="commiterConfig.dbCreateTableSQL"  />
+                </div>
+                <div class="form-group" *ngIf="commiterConfig.commiter?.name === 'SQLCommitter'">
+                    <label class="form-control-label" jhiTranslate="spongeApp.commiterConfig.dbCommitBatchSize" for="field_dbCommitBatchSize">Db Commit Batch Size</label>
+                    <input type="text" class="form-control" name="dbCommitBatchSize" id="field_dbCommitBatchSize" required
+                        [(ngModel)]="commiterConfig.dbCommitBatchSize"  />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" *ngIf="commiterConfig.commiter?.name === 'BigConnectCommitter'">
+            <label class="form-control-label" jhiTranslate="spongeApp.commiterConfig.bcUrl" for="field_bcUrl">Bc Url</label>
+            <input type="text" class="form-control" name="bcUrl" id="field_bcUrl" required
+                [(ngModel)]="commiterConfig.bcUrl"  />
+        </div>
+        <div class="form-group" *ngIf="commiterConfig.commiter?.name === 'BigConnectCommitter'">
+            <label class="form-control-label" jhiTranslate="spongeApp.commiterConfig.bcUsername" for="field_bcUsername">Bc Username</label>
+            <input type="text" class="form-control" name="bcUsername" id="field_bcUsername" required
+                [(ngModel)]="commiterConfig.bcUsername"  />
+        </div>
+        <div class="form-group" *ngIf="commiterConfig.commiter?.name === 'BigConnectCommitter'">
+            <label class="form-control-label" jhiTranslate="spongeApp.commiterConfig.bcPassword" for="field_bcPassword">Bc Password</label>
+            <input type="password" class="form-control" name="bcPassword" id="field_bcPassword" required
+                [(ngModel)]="commiterConfig.bcPassword"  />
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

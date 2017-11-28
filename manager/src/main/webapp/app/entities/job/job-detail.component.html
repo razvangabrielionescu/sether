@@ -1,0 +1,47 @@
+
+<div *ngIf="job">
+    <h2><span jhiTranslate="spongeApp.job.detail.title">Job</span> {{job.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spongeApp.job.startTime">Start Time</span></dt>
+        <dd>
+            <span>{{job.startTime | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.job.endTime">End Time</span></dt>
+        <dd>
+            <span>{{job.endTime | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.job.period">Period</span></dt>
+        <dd>
+            <span>{{job.period}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.job.periodUnit">Period Unit</span></dt>
+        <dd>
+            <span>{{job.periodUnit}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.job.status">Status</span></dt>
+        <dd>
+            <span>{{job.status}}</span>
+        </dd>
+        <dt><span jhiTranslate="spongeApp.job.project">Project</span></dt>
+        <dd>
+            <div *ngIf="job.project">
+                <a [routerLink]="['/project', job.project?.id]">{{job.project?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'job/'+ job.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
